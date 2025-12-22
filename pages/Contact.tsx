@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { BudgetOption, FormData } from '../types.ts';
-import { Sparkles, Send, Loader2, Mail, MapPin, Instagram } from 'lucide-react';
-import { refineConcept } from '../services/gemini.ts';
+import { Send, Mail, MapPin, Instagram } from 'lucide-react';
 import { INSTAGRAM_LINK } from '../constants.tsx';
 
 export const Contact: React.FC = () => {
@@ -18,23 +17,9 @@ export const Contact: React.FC = () => {
     notes: ''
   });
 
-  const [isEnhancing, setIsEnhancing] = useState(false);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleEnhanceConcept = async () => {
-    if (!formData.concept || formData.concept.length < 5) {
-      alert("Please enter a rough concept first.");
-      return;
-    }
-    
-    setIsEnhancing(true);
-    const enhanced = await refineConcept(formData.concept, formData.songName, formData.name);
-    setFormData(prev => ({ ...prev, concept: enhanced }));
-    setIsEnhancing(false);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -191,15 +176,6 @@ ${formData.concept}
                 <div className="space-y-1 pt-4">
                     <div className="flex justify-between items-center mb-1">
                         <label className="text-[10px] font-bold text-blue-600 uppercase tracking-widest">Video Concept / Vision *</label>
-                        <button 
-                            type="button"
-                            onClick={handleEnhanceConcept}
-                            disabled={isEnhancing}
-                            className="flex items-center text-[10px] text-neutral-600 hover:text-black transition-colors uppercase tracking-wider bg-white px-2 py-1 border border-neutral-200 rounded-full hover:bg-neutral-100"
-                        >
-                            {isEnhancing ? <Loader2 className="w-3 h-3 mr-1 animate-spin" /> : <Sparkles className="w-3 h-3 mr-1" />}
-                            {isEnhancing ? 'Enhancing...' : 'Enhance with AI'}
-                        </button>
                     </div>
                     <textarea
                     name="concept"

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ON-TAPE.</title>
     <script>
-      // Polyfill process for browser compatibility to prevent 'process is not defined' errors
+      // Polyfill process for browser compatibility
       window.process = { env: {} };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,6 +18,9 @@
                 600: '#3031f8', // Custom Blue
                 700: '#2425b0', // Darker shade
                 800: '#1a1b8c', // Deep shade
+                400: '#5c5df9', // Lighter shade
+                500: '#4647f9', // Mid shade
+                900: '#11115e', // Darkest shade
               }
             },
             fontFamily: {
@@ -27,7 +30,7 @@
         }
       }
     </script>
-  <script type="importmap">
+<script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@^19.2.3",
@@ -35,7 +38,6 @@
     "react/": "https://esm.sh/react@^19.2.3/",
     "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
     "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
-    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
     "vite": "https://esm.sh/vite@^7.3.0",
     "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
   }
