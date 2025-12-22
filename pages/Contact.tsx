@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BudgetOption, FormData } from '../types.ts';
-import { Send, Mail, MapPin, Instagram } from 'lucide-react';
+import { Send, Mail, MapPin, Instagram, Globe } from 'lucide-react';
 import { INSTAGRAM_LINK } from '../constants.tsx';
 
 export const Contact: React.FC = () => {
@@ -65,8 +65,14 @@ ${formData.concept}
                     </div>
                     <div>
                         <h3 className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Studio Base</h3>
-                        <div className="flex items-center text-lg font-bold text-black">
-                            <MapPin className="w-5 h-5 mr-3" /> London, United Kingdom
+                        <div className="flex items-center text-lg font-bold text-black mb-3">
+                            <MapPin className="w-5 h-5 mr-3 flex-shrink-0" /> Reading & London, United Kingdom
+                        </div>
+                        <div className="flex items-start text-neutral-500 text-xs font-medium leading-relaxed max-w-xs">
+                             <Globe className="w-4 h-4 mr-2 flex-shrink-0 mt-0.5" />
+                             <p>
+                                 For non-studio services, we work nationally across the UK. Global projects are available if contacted and planned in advance.
+                             </p>
                         </div>
                     </div>
                     <div>
