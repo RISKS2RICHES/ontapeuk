@@ -19,10 +19,10 @@ export const Home: React.FC = () => {
       <section className="relative z-10 min-h-[40vh] md:min-h-[55vh] flex items-center justify-center pt-24 md:pt-28 pb-4">
         <div className="relative text-center px-4 max-w-[95vw] mx-auto flex flex-col items-center">
           <h1 className="font-black uppercase tracking-tighter leading-[0.85] mb-3 animate-fade-up flex flex-col items-center w-full">
-            <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl block">The Blueprint</span>
+            <span className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl block">The Blueprint</span>
             {/* Middle line smaller on mobile to fit on one line */}
-            <span className="text-2xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-500 my-1 sm:my-0 whitespace-nowrap block">For Independent</span>
-            <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-blue-600 block">Success.</span>
+            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-500 my-1 sm:my-0 whitespace-nowrap block">For Independent</span>
+            <span className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl text-blue-600 block">Success.</span>
           </h1>
           
           <p className="text-neutral-400 text-[10px] sm:text-xs md:text-sm max-w-xs sm:max-w-md mx-auto mb-4 md:mb-5 font-medium tracking-wide animate-fade-up delay-100 leading-tight">
