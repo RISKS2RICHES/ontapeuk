@@ -8,10 +8,13 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     define: {
+      // Define process.env to an empty object to prevent crashes, then override specific keys
+      'process.env': {},
       'process.env.API_KEY': JSON.stringify(env.API_KEY),
     },
     build: {
       outDir: 'dist',
+      target: 'esnext',
     }
   };
 });
