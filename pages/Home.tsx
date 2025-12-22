@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Play, ExternalLink, Music2 } from 'lucide-react';
-import { PROJECTS, SERVICES, PARTNERSHIP_TRACKS, PARTNER_INSTAGRAM_LINK, PARTNER_CREDITS_LINK, WHATSAPP_LINK } from '../constants';
-import { ProjectCard } from '../components/ProjectCard';
+import { PROJECTS, SERVICES, PARTNERSHIP_TRACKS, PARTNER_INSTAGRAM_LINK, PARTNER_CREDITS_LINK, WHATSAPP_LINK } from '../constants.tsx';
+import { ProjectCard } from '../components/ProjectCard.tsx';
 
 export const Home: React.FC = () => {
   return (
@@ -19,10 +19,10 @@ export const Home: React.FC = () => {
       <section className="relative z-10 min-h-[40vh] md:min-h-[55vh] flex items-center justify-center pt-24 md:pt-28 pb-4">
         <div className="relative text-center px-4 max-w-[95vw] mx-auto flex flex-col items-center">
           <h1 className="font-black uppercase tracking-tighter leading-[0.85] mb-3 animate-fade-up flex flex-col items-center w-full">
-            <span className="text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] xl:text-[11rem]">The Blueprint</span>
+            <span className="text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] xl:text-[11rem] block">The Blueprint</span>
             {/* Middle line smaller on mobile to fit on one line */}
-            <span className="text-3xl sm:text-6xl md:text-8xl lg:text-[9rem] xl:text-[11rem] text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-500 my-1 sm:my-0 whitespace-nowrap">For Independent</span>
-            <span className="text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] xl:text-[11rem] text-blue-600">Success.</span>
+            <span className="text-3xl sm:text-6xl md:text-8xl lg:text-[9rem] xl:text-[11rem] text-transparent bg-clip-text bg-gradient-to-b from-white to-neutral-500 my-1 sm:my-0 whitespace-nowrap block">For Independent</span>
+            <span className="text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] xl:text-[11rem] text-blue-600 block">Success.</span>
           </h1>
           
           <p className="text-neutral-400 text-[10px] sm:text-xs md:text-sm max-w-xs sm:max-w-md mx-auto mb-4 md:mb-5 font-medium tracking-wide animate-fade-up delay-100 leading-tight">
@@ -138,35 +138,41 @@ export const Home: React.FC = () => {
 
                 <div className="p-3 md:p-4 bg-neutral-900/30">
                      <h3 className="text-[8px] font-bold uppercase tracking-widest text-neutral-500 mb-2">Production Credits</h3>
-                     {/* Compact grid for 8 items: 4 across on mobile, 8 across on desktop */}
-                     <div className="grid grid-cols-4 md:grid-cols-8 gap-2 md:gap-3">
+                     {/* Text Only List for Credits */}
+                     <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
                         {PARTNERSHIP_TRACKS.map((track, index) => (
-                            <div key={index} className="group relative aspect-square bg-neutral-800 rounded-sm shadow-sm border border-white/5 overflow-hidden hover:shadow-md transition-all duration-300 hover:z-10 hover:scale-105 hover:border-blue-600/50">
-                                {/* Album Art Background */}
-                                <div className="absolute inset-0 bg-neutral-800">
-                                     <img 
-                                        src={track.image} 
-                                        alt={`${track.artist} - ${track.title}`}
-                                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                                        loading="lazy"
-                                        onError={(e) => {
-                                            // Fallback if image fails
-                                            e.currentTarget.style.display = 'none';
-                                            e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                                        }}
-                                     />
-                                     <div className="hidden w-full h-full flex items-center justify-center bg-neutral-800">
-                                         <Music2 className="w-4 h-4 text-neutral-500" />
-                                     </div>
-                                </div>
-                                
-                                {/* Overlay Content - Only visible on hover to keep it clean */}
-                                <div className="absolute inset-0 bg-black/80 flex flex-col justify-center items-center p-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-center backdrop-blur-sm">
-                                    <p className="text-white font-bold text-[7px] leading-tight mb-0.5 line-clamp-2">{track.title}</p>
-                                    <p className="text-neutral-400 text-[6px] uppercase tracking-wider line-clamp-1">{track.artist}</p>
-                                </div>
+                            <div key={index} className="flex flex-col justify-center p-3 bg-neutral-800/50 border border-white/5 rounded-sm hover:border-blue-600/50 transition-colors group">
+                                <p className="text-white font-bold text-[9px] uppercase leading-tight truncate group-hover:text-blue-500 transition-colors" title={track.title}>
+                                    {track.title}
+                                </p>
+                                <p className="text-neutral-500 text-[8px] uppercase tracking-wider truncate" title={track.artist}>{track.artist}</p>
                             </div>
                         ))}
+                     </div>
+
+                     {/* Streaming Platforms */}
+                     <div className="border-t border-white/5 pt-3 pb-1">
+                         <p className="text-[7px] text-neutral-600 uppercase tracking-widest text-center mb-3">Available on all major platforms</p>
+                         <div className="flex justify-center items-center gap-6 md:gap-8">
+                             {/* Spotify */}
+                             <a href="#" className="text-neutral-500 hover:text-[#1DB954] transition-colors" aria-label="Spotify">
+                                <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141 4.32-1.32 9.779-.66 13.439 1.56.48.3.6.84.301 1.26zm.12-3.36C15.222 8.4 8.822 8.16 5.142 9.3c-.599.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.2-1.26 11.281-1.02 15.721 1.62.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                             </a>
+                             {/* Apple Logo (Generic Apple) */}
+                             <a href="#" className="text-neutral-500 hover:text-[#FA243C] transition-colors" aria-label="Apple">
+                                <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
+                                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.74 1.18 0 2.21-.93 3.23-.93 1.55 0 2.72.63 3.43 1.74-2.95 1.85-2.45 6.9 1.55 8.54-.42 1.18-.89 2.05-1.55 2.88-.93 1.14-1.68 2.05-1.74 2.05zm-1.8-13.6c.72-.85 1.13-2 1.05-3.09-1.01.05-2.29.7-3 1.56-.63.74-1.22 1.95-1.08 3.03 1.18.09 2.34-.63 3.03-1.5z"/>
+                                </svg>
+                             </a>
+                             {/* SoundCloud */}
+                             <a href="#" className="text-neutral-500 hover:text-[#FF5500] transition-colors" aria-label="SoundCloud">
+                                <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current"><path d="M11.52 6.162c-2.43 0-4.62.96-6.18 2.51l.36.36c1.47-1.46 3.52-2.36 5.82-2.36 2.37 0 4.49.96 5.99 2.5l.36-.36c-1.57-1.61-3.8-2.65-6.35-2.65zM23.996 11.255c-.067-2.345-1.956-4.225-4.309-4.225-.337 0-.665.041-.983.109C17.78 3.09 14.197.001 9.94.001 5.347.001 1.517 3.518.847 8.026.331 8.356 0 8.925 0 9.563v9.873c0 .867.703 1.57 1.57 1.57h20.856c.867 0 1.57-.703 1.57-1.57v-8.181zM2.873 19.382h-1.3v-8.24h1.3v8.24zm2.668 0h-1.3v-9.522h1.3v9.522zm2.668 0h-1.3v-12.01h1.3v12.01zm2.669 0h-1.3V5.592h1.3v13.79zm2.669 0h-1.3V7.276h1.3v12.106zm8.851 0h-4.832V9.308h.277c2.618 0 4.742 2.124 4.742 4.742 0 .11-.005.218-.016.326l-.171 4.998z"/></svg>
+                             </a>
+                             {/* Deezer */}
+                             <a href="#" className="text-neutral-500 hover:text-[#00C7F2] transition-colors" aria-label="Deezer">
+                                <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current"><path d="M12.915 13.978h4.526V18.5h-4.526zM7.34 13.978h4.524V18.5H7.34zm11.152 0H23.02V18.5h-4.527zM1.765 13.978h4.525V18.5H1.765zm5.575-5.545h4.524v4.523H7.34zm5.575 0h4.526v4.523h-4.526zm5.577 0H23.02v4.523h-4.527zM7.34 2.887h4.524v4.524H7.34zm5.575 0h4.526v4.524h-4.526zm5.577 0H23.02v4.524h-4.527z"/></svg>
+                             </a>
+                         </div>
                      </div>
                      
                      {/* Explore More Button for Credits */}

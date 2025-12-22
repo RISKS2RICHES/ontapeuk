@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Menu, X, Instagram } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import { Logo } from './Logo';
-import { INSTAGRAM_LINK, WHATSAPP_LINK } from '../constants';
+import { Logo } from './Logo.tsx';
+import { INSTAGRAM_LINK } from '../constants.tsx';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
+  // Updated to point "Submit Your Vision" to the internal contact page
   const navLinks = [
     { name: 'Home', path: '/', isExternal: false },
     { name: 'Projects', path: '/projects', isExternal: false },

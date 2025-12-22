@@ -1,5 +1,5 @@
 import React from 'react';
-import { LOGO_IMAGE_URL } from '../constants';
+import { LOGO_IMAGE_URL } from '../constants.tsx';
 
 export const Logo: React.FC<{ className?: string }> = ({ className = "" }) => {
   return (
@@ -10,8 +10,7 @@ export const Logo: React.FC<{ className?: string }> = ({ className = "" }) => {
             alt="ON-TAPE Icon" 
             className="w-full h-full object-cover"
             onError={(e) => {
-                // Fallback
-                e.currentTarget.src = "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=2070&auto=format&fit=crop";
+                e.currentTarget.style.display = 'none';
             }}
            />
         </div>

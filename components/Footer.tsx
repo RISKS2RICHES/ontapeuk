@@ -1,6 +1,6 @@
 import React from 'react';
-import { Logo } from './Logo';
-import { INSTAGRAM_LINK, WHATSAPP_LINK } from '../constants';
+import { Logo } from './Logo.tsx';
+import { INSTAGRAM_LINK } from '../constants.tsx';
 import { Instagram, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 

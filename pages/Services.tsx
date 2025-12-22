@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SERVICES, PACKAGES, WHATSAPP_NUMBER } from '../constants';
+import { SERVICES, PACKAGES, WHATSAPP_NUMBER } from '../constants.tsx';
 import { ArrowRight, Check, MessageCircle, ChevronDown, ChevronUp, AlertCircle } from 'lucide-react';
 
 export const Services: React.FC = () => {

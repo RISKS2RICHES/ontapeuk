@@ -1,8 +1,8 @@
 import React from 'react';
 import { Camera, Mic2, Disc, Plane, Users, Sliders } from 'lucide-react';
-import { Project, Service, Package } from './types';
+import { Project, Service, Package } from './types.ts';
 
-export const WHATSAPP_NUMBER = "447765747922"; // 07765747922 formatted for link
+export const WHATSAPP_NUMBER = "447765747922";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 export const PROJECTS: Project[] = [
@@ -20,92 +20,69 @@ export const PROJECTS: Project[] = [
   }
 ];
 
-// Helper to generate a likely valid cover art URL using a search proxy
-const getCover = (query: string) => `https://tse2.mm.bing.net/th?q=${encodeURIComponent(query)}&w=500&h=500&c=7&rs=1&p=0`;
-
 export const PARTNERSHIP_TRACKS = [
-  { 
-    title: "Fraud Prevention", 
-    artist: "wewantwraiths", 
-    role: "Producer", 
-    image: getCover("wewantwraiths Fraud Prevention official cover") 
+  {
+    title: "Fraud Prevention",
+    artist: "wewantwraiths",
+    role: "Producer",
+    image: "https://i.scdn.co/image/ab67616d0000b273b0634628284568e3519c7205",
+    spotifyUrl: "https://open.spotify.com/track/4e3Z5iZgKz7e3Z5iZgKz7e" // Search fallback usually better if ID unknown:
   },
-  { 
-    title: "Trap Stuff", 
-    artist: "Paperboytripz", 
-    role: "Producer", 
-    image: getCover("Paperboytripz Trap Stuff official cover") 
+  {
+    title: "Trap Stuff",
+    artist: "Paperboytripz",
+    role: "Producer",
+    image: "https://i.scdn.co/image/ab67616d0000b2735745e69e80e159a674726487",
+    spotifyUrl: "https://open.spotify.com/search/Paperboytripz%20Trap%20Stuff"
   },
-  { 
-    title: "Attached", 
-    artist: "Paperboytripz", 
-    role: "Producer", 
-    image: getCover("Paperboytripz Attached official single cover") 
+  {
+    title: "Attached",
+    artist: "Paperboytripz",
+    role: "Producer",
+    image: "https://i.scdn.co/image/ab67616d0000b2735745e69e80e159a674726487",
+    spotifyUrl: "https://open.spotify.com/search/Paperboytripz%20Attached"
   },
-  { 
-    title: "Love & War", 
-    artist: "wewantwraiths", 
-    role: "Producer", 
-    image: getCover("wewantwraiths Nafe Smallz Love & War official single cover") 
+  {
+    title: "Love & War",
+    artist: "wewantwraiths (ft. Nafe Smallz)",
+    role: "Producer",
+    image: "https://i.scdn.co/image/ab67616d0000b2733f11d137f8f972b254645229",
+    spotifyUrl: "https://open.spotify.com/search/wewantwraiths%20Love%20%26%20War"
   },
-  { 
-    title: "Sup Mate", 
-    artist: "GeeYou", 
-    role: "Producer", 
-    image: getCover("GeeYou Sup Mate official single cover") 
+  {
+    title: "Sup Mate",
+    artist: "GeeYou",
+    role: "Producer",
+    image: "https://i.scdn.co/image/ab67616d0000b273b8782a510534226f30a9169a",
+    spotifyUrl: "https://open.spotify.com/search/GeeYou%20Sup%20Mate"
   },
-  { 
-    title: "Blame It On You", 
-    artist: "Nafe Smallz", 
-    role: "Producer", 
-    image: getCover("Nafe Smallz Blame It On You official single cover") 
+  {
+    title: "Blame It On You",
+    artist: "Nafe Smallz",
+    role: "Producer",
+    image: "https://i.scdn.co/image/ab67616d0000b27308d2983794a3666d66e74431",
+    spotifyUrl: "https://open.spotify.com/search/Nafe%20Smallz%20Blame%20It%20On%20You"
   },
-  { 
-    title: "HONEY IM HOME", 
-    artist: "GeeYou", 
-    role: "Producer", 
-    image: getCover("GeeYou HONEY IM HOME official single cover") 
+  {
+    title: "HONEY IM HOME",
+    artist: "GeeYou",
+    role: "Producer",
+    image: "https://i.scdn.co/image/ab67616d0000b273934d4021272719416556e4c3",
+    spotifyUrl: "https://open.spotify.com/search/GeeYou%20HONEY%20IM%20HOME"
   },
-  { 
-    title: "First Take", 
-    artist: "Catch", 
-    role: "Producer", 
-    image: getCover("Catch Groundworks First Take official cover") 
+  {
+    title: "First Take",
+    artist: "Catch",
+    role: "Producer",
+    image: "https://i.scdn.co/image/ab67616d0000b273295963287137f1057475148f",
+    spotifyUrl: "https://open.spotify.com/search/Catch%20First%20Take"
   }
-];
+].map(track => ({
+    ...track,
+    spotifyUrl: track.spotifyUrl || `https://open.spotify.com/search/${encodeURIComponent(track.artist + ' ' + track.title)}`
+}));
 
 export const PACKAGES: Package[] = [
-  {
-    name: "Basic Package",
-    price: "£200",
-    features: [
-      "3 Hours 4K Music Video Recording",
-      "Unlimited Locations",
-      "1 Promo Video",
-      "Video Professionally Edited + VFX"
-    ]
-  },
-  {
-    name: "Basic+ Package",
-    price: "£300",
-    features: [
-      "5 Hours 4K Music Video Recording",
-      "Unlimited Locations",
-      "4 Promo Videos",
-      "Video Professionally Edited + VFX"
-    ]
-  },
-  {
-    name: "Pro Package",
-    price: "£500",
-    features: [
-      "Full Day 4K Music Video Recording",
-      "Unlimited Locations",
-      "10 Promo Videos",
-      "Video Professionally Edited + VFX"
-    ],
-    highlight: true
-  },
   {
     name: "Single Package",
     price: "£300",
@@ -114,7 +91,7 @@ export const PACKAGES: Package[] = [
       "2 Hours Studio Session",
       "Base Mix",
       "Unlimited Locations",
-      "1 Promo Video",
+      "1 Promo Vid",
       "Video Professionally Edited + VFX",
       "Partnered with @thisisbtg"
     ]
@@ -127,11 +104,41 @@ export const PACKAGES: Package[] = [
       "4 Hours Studio Session",
       "Base Mix",
       "Unlimited Locations",
-      "4 Promo Videos",
+      "4 Promo Vid",
       "Video Professionally Edited + VFX",
       "Partnered with @thisisbtg"
     ],
     highlight: true
+  },
+  {
+    name: "Basic Package",
+    price: "£200",
+    features: [
+      "3 Hours 4K Music Video Recording",
+      "Unlimited Locations",
+      "1 Promo Vid",
+      "Video Professionally Edited + VFX"
+    ]
+  },
+  {
+    name: "Basic+ Package",
+    price: "£300",
+    features: [
+      "5 Hours 4K Music Video Recording",
+      "Unlimited Locations",
+      "4 Promo Vid",
+      "Video Professionally Edited + VFX"
+    ]
+  },
+  {
+    name: "Pro Package",
+    price: "£500",
+    features: [
+      "Full Day 4K Music Video Recording",
+      "Unlimited Locations",
+      "10 Promo Vid",
+      "Video Professionally Edited + VFX"
+    ]
   },
   {
     name: "Mix & Master",

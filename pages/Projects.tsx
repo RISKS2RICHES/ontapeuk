@@ -1,6 +1,6 @@
 import React from 'react';
-import { ProjectCard } from '../components/ProjectCard';
-import { PROJECTS, INSTAGRAM_LINK } from '../constants';
+import { ProjectCard } from '../components/ProjectCard.tsx';
+import { PROJECTS, INSTAGRAM_LINK } from '../constants.tsx';
 import { ArrowUpRight, Instagram } from 'lucide-react';
 
 export const Projects: React.FC = () => {

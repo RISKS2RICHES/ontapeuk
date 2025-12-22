@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { BudgetOption, FormData } from '../types';
+import { BudgetOption, FormData } from '../types.ts';
 import { Sparkles, Send, Loader2, Mail, MapPin, Instagram } from 'lucide-react';
-import { refineConcept } from '../services/gemini';
-import { INSTAGRAM_LINK } from '../constants';
+import { refineConcept } from '../services/gemini.ts';
+import { INSTAGRAM_LINK } from '../constants.tsx';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({

@@ -1,15 +1,13 @@
 import { GoogleGenAI } from "@google/genai";
 
-const apiKey = process.env.API_KEY;
-
 export const refineConcept = async (rawConcept: string, songName: string, artistName: string): Promise<string> => {
-  if (!apiKey) {
+  if (!process.env.API_KEY) {
     console.warn("API_KEY not found in environment variables");
     return "AI Enhancement unavailable (Missing API Key).";
   }
 
   try {
-    const ai = new GoogleGenAI({ apiKey });
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     
     // Using a performant model for text generation
     const response = await ai.models.generateContent({
