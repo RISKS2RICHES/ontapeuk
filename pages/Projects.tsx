@@ -23,10 +23,10 @@ export const Projects: React.FC = () => {
           </p>
         </div>
 
-        {/* Project Grid - Tighter and smaller as requested */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-16 animate-fade-up delay-200">
+        {/* Project Grid - Adjusted for mobile to prevent overlapping */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mb-16 animate-fade-up delay-200">
           {PROJECTS.map((project) => (
-            <div key={project.id} className="h-40 md:h-48">
+            <div key={project.id} className="w-full">
                  <ProjectCard project={project} />
             </div>
           ))}
