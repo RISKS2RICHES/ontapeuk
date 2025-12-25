@@ -130,7 +130,12 @@ export const Services: React.FC = () => {
                             </p>
                         </div>
                         <div className="md:w-1/3 flex items-center">
-                            <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I'd like to discuss ${service.title}`} className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-blue-600 hover:text-white transition-colors">
+                            <a 
+                                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi, I'd like to discuss ${service.title}`} 
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-blue-600 hover:text-white transition-colors"
+                            >
                                 Enquire about this service <ArrowRight size={14} className="ml-2" />
                             </a>
                         </div>

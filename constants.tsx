@@ -8,15 +8,24 @@ export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    artist: '24Liz',
-    song: '24 Style',
-    youtubeId: 'amFusypLTY0',
+    artist: 'ZT #AFG',
+    song: 'First Things First Freestyle',
+    youtubeId: 'riPWPAD-_l8',
+    featured: true,
   },
   {
     id: '2',
     artist: 'YTrizz',
     song: 'Demons',
     youtubeId: 'AtSQhxv_egc',
+    featured: true,
+  },
+  {
+    id: '3',
+    artist: '24Liz',
+    song: '24 Style',
+    youtubeId: 'amFusypLTY0',
+    featured: false,
   }
 ];
 

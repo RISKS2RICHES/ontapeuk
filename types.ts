@@ -6,6 +6,7 @@ export interface Project {
   song: string;
   youtubeId: string;
   thumbnail?: string;
+  featured?: boolean; // Controls visibility on Home page
 }
 
 export interface Service {

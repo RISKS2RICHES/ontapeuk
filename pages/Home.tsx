@@ -59,7 +59,7 @@ export const Home: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {PROJECTS.map((project) => (
+                {PROJECTS.filter(project => project.featured).map((project) => (
                 <ProjectCard key={project.id} project={project} />
                 ))}
             </div>
@@ -155,21 +155,21 @@ export const Home: React.FC = () => {
                          <p className="text-[9px] md:text-[10px] text-neutral-600 uppercase tracking-widest text-center mb-4">Available on all major platforms</p>
                          <div className="flex justify-center items-center gap-8 md:gap-12">
                              {/* Spotify */}
-                             <a href="#" className="text-neutral-500 hover:text-[#1DB954] transition-colors" aria-label="Spotify">
+                             <a href="https://open.spotify.com" target="_blank" rel="noreferrer" className="text-neutral-500 hover:text-[#1DB954] transition-colors" aria-label="Spotify">
                                 <svg viewBox="0 0 24 24" className="w-6 h-6 md:w-7 md:h-7 fill-current"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141 4.32-1.32 9.779-.66 13.439 1.56.48.3.6.84.301 1.26zm.12-3.36C15.222 8.4 8.822 8.16 5.142 9.3c-.599.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.2-1.26 11.281-1.02 15.721 1.62.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
                              </a>
                              {/* Apple Music Logo (Accurate) */}
-                             <a href="#" className="text-neutral-500 hover:text-[#FA243C] transition-colors" aria-label="Apple Music">
+                             <a href="https://music.apple.com" target="_blank" rel="noreferrer" className="text-neutral-500 hover:text-[#FA243C] transition-colors" aria-label="Apple Music">
                                 <svg viewBox="0 0 384 512" className="h-6 md:h-7 w-auto fill-current">
                                     <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-11.4 69.5-34.3z"/>
                                 </svg>
                              </a>
                              {/* SoundCloud */}
-                             <a href="#" className="text-neutral-500 hover:text-[#FF5500] transition-colors" aria-label="SoundCloud">
+                             <a href="https://soundcloud.com" target="_blank" rel="noreferrer" className="text-neutral-500 hover:text-[#FF5500] transition-colors" aria-label="SoundCloud">
                                 <svg viewBox="0 0 24 24" className="w-10 h-10 md:w-12 md:h-12 fill-current"><path d="M11.52 6.162c-2.43 0-4.62.96-6.18 2.51l.36.36c1.47-1.46 3.52-2.36 5.82-2.36 2.37 0 4.49.96 5.99 2.5l.36-.36c-1.57-1.61-3.8-2.65-6.35-2.65zM23.996 11.255c-.067-2.345-1.956-4.225-4.309-4.225-.337 0-.665.041-.983.109C17.78 3.09 14.197.001 9.94.001 5.347.001 1.517 3.518.847 8.026.331 8.356 0 8.925 0 9.563v9.873c0 .867.703 1.57 1.57 1.57h20.856c.867 0 1.57-.703 1.57-1.57v-8.181zM2.873 19.382h-1.3v-8.24h1.3v8.24zm2.668 0h-1.3v-9.522h1.3v9.522zm2.668 0h-1.3v-12.01h1.3v12.01zm2.669 0h-1.3V5.592h1.3v13.79zm2.669 0h-1.3V7.276h1.3v12.106zm8.851 0h-4.832V9.308h.277c2.618 0 4.742 2.124 4.742 4.742 0 .11-.005.218-.016.326l-.171 4.998z"/></svg>
                              </a>
                              {/* Deezer */}
-                             <a href="#" className="text-neutral-500 hover:text-[#00C7F2] transition-colors" aria-label="Deezer">
+                             <a href="https://www.deezer.com" target="_blank" rel="noreferrer" className="text-neutral-500 hover:text-[#00C7F2] transition-colors" aria-label="Deezer">
                                 <svg viewBox="0 0 24 24" className="w-6 h-6 md:w-7 md:h-7 fill-current"><path d="M12.915 13.978h4.526V18.5h-4.526zM7.34 13.978h4.524V18.5H7.34zm11.152 0H23.02V18.5h-4.527zM1.765 13.978h4.525V18.5H1.765zm5.575-5.545h4.524v4.523H7.34zm5.575 0h4.526v4.523h-4.526zm5.577 0H23.02v4.523h-4.527zM7.34 2.887h4.524v4.524H7.34zm5.575 0h4.526v4.524h-4.526zm5.577 0H23.02v4.524h-4.527z"/></svg>
                              </a>
                          </div>
